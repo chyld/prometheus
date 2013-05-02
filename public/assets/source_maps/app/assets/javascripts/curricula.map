@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "",
+  "sourceRoot": "",
+  "sources": [
+    "/assets/source_maps/app/assets/javascripts/curricula.coffee"
+  ],
+  "names": [],
+  "mappings": "AAAA;CAAA,CAAA,CAAA,GAAM;CACJ,CAAO,CAAA,CAAP,CAAA,IAAO;CACL,OAAA,EAAA,GAAA;CADF,IAAO;CADT,GAAA;;CAAA,CAIA,CAAqB,EAArB,GAAA;CAJA"
+}

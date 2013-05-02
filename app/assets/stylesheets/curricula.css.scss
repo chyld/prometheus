@@ -1,0 +1,20 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,700);
+
+.alert-text
+{
+  color: #c60f13;
+}
+
+.success-text
+{
+  color: #5da423;
+}
+
+footer.row { margin-top: 25px; padding-top: 25px; border-top: 1px solid #ccc; }
+
+#about { background: #33A6C9; padding: 25px 0 25px 0; margin-top: 30px; }
+#about h5 { margin-bottom: 0px; margin-top: 10px; color: #fff; line-height: 24px; }
+#about p { clear: both; font-size: 12px; padding-top: 2px; color: #fff; }
+
+#copyright { background: #3f3f3f; color: #fff; padding: 11px 0; }
+#about h5, #about p, #copyright p { font-family: 'Open Sans', sans-serif; font-weight: 300; }

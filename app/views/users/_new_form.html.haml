@@ -1,0 +1,9 @@
+= render partial: 'shared/errors', locals: {object: @user}
+= form_for @user, url: register_users_path do |f|
+  = f.label 'email'
+  = f.text_field 'email'
+  = f.label 'password', 'Create Password'
+  = f.password_field 'password'
+  = f.label 'password_confirmation', 'Confirm Password'
+  = f.password_field 'password_confirmation'
+  = f.submit 'Sign Up', class: 'button success'

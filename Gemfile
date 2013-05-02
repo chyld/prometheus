@@ -4,6 +4,8 @@ gem 'rails'
 gem 'pg'
 gem 'jquery-rails'
 gem 'haml'
+gem 'bcrypt-ruby'
+gem 'aws-ses'
 
 group :assets do
   gem 'sass-rails'
