@@ -1,5 +1,30 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,700);
 
+
+.top-bar
+{
+  background-color: #5da423;
+  height: 75px;
+}
+
+.top-bar .title-area .name h1
+{
+  padding-top: 10px;
+}
+
+.top-bar .title-area .name h1 a
+{
+  font-family: 'Open Sans', sans-serif; font-weight: 300;
+  font-size: 3em;
+}
+
+.top-bar-section ul.right li
+{
+  padding-top: 15px;
+  height: 75px;
+  background-color: #111111;
+}
+
 .alert-text
 {
   color: #c60f13;
