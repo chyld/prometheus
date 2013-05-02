@@ -7,3 +7,8 @@
   = f.label 'password_confirmation', 'Confirm Password'
   = f.password_field 'password_confirmation'
   = f.submit 'Sign Up', class: 'button success'
+
+.row
+  .small-12.columns
+    = image_tag('gemicon/png/16x16/01/11.png')
+    = link_to('Want to Sign In?', login_users_path)

@@ -13,7 +13,13 @@
   color: #5da423;
 }
 
-footer.row { margin-top: 25px; padding-top: 25px; border-top: 1px solid #ccc; }
+.plan
+{
+  width: 285px;
+  margin: 0px 15px 15px 0px;
+}
+
+footer.row { margin-top: 25px; padding-top: 25px; border-top: 1px solid #bbbbbb; }
 #about { background: #33A6C9; padding: 25px 0 25px 0; margin-top: 30px; }
 #about h5 { margin-bottom: 0px; margin-top: 10px; color: #fff; line-height: 24px; }
 #about p { clear: both; font-size: 12px; padding-top: 2px; color: #fff; }

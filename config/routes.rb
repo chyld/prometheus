@@ -14,4 +14,7 @@ Prometheus::Application.routes.draw do
   end
 
   resources :curricula, :only => [:index]
+
+  get 'plans' => 'commerce#plans'
+  get 'purchase' => 'commerce#purchase'
 end

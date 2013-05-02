@@ -1,6 +1,6 @@
 - if object.errors.any?
   .panel.radius
-    %ul
+    %ul.no-bullet
       - object.errors.full_messages.each do |msg|
         - if msg != "Password digest can't be blank"
           %li.alert-text= msg

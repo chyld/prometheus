@@ -6,5 +6,10 @@
   = password_field_tag 'password'
   = submit_tag 'Sign In', class: 'button'
 
-= image_tag('pyconic/046.png')
-= link_to('Forgot Password?', password_users_path)
+.row
+  .small-6.columns
+    = image_tag('gemicon/png/16x16/08/1.png')
+    = link_to('Forgot Password?', password_users_path)
+  .small-6.columns
+    = image_tag('gemicon/png/16x16/08/11.png')
+    = link_to('Need to Sign Up?', register_users_path)

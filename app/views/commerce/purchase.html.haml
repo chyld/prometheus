@@ -1,0 +1,14 @@
+%h1.subheader Purchase Plan
+.row
+  .small-12.columns
+    %h3.subheader Step 1
+    - if @auth.present?
+      %b= "#{@auth.email} is purchasing the #{params[:plan]} plan"
+    -else
+      = link_to('Sign In', login_users_path, class: 'button')
+.row
+  .small-12.columns
+    %h3.subheader Step 2
+    - if @auth.present?
+    -else
+      %p You must be signed in to continue...

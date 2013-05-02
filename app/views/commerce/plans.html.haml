@@ -1,0 +1,33 @@
+%h1.subheader Plans & Pricing
+.row
+  .small-12.columns
+    .left.plan
+      %ul.pricing-table
+        %li.title Individual Monthly
+        %li.price $9.99/month
+        %li.description
+          %b Standard Price
+        %li.bullet-item Item 1
+        %li.bullet-item Item 2
+        %li.bullet-item Item 3
+        %li.cta-button= link_to('Buy Plan', purchase_path(plan: 'monthly'), class: 'button success')
+    .left.plan
+      %ul.pricing-table
+        %li.title Individual Yearly
+        %li.price $89.99/year
+        %li.description
+          %b Save 25%
+        %li.bullet-item Item 1
+        %li.bullet-item Item 2
+        %li.bullet-item Item 3
+        %li.cta-button= link_to('Buy Plan', purchase_path(plan: 'yearly'), class: 'button success')
+    .left.plan
+      %ul.pricing-table
+        %li.title Group Membership
+        %li.price $6.99/person/month
+        %li.description
+          %b Save 30%
+        %li.bullet-item Item 1
+        %li.bullet-item Item 2
+        %li.bullet-item Item 3
+        %li.cta-button= link_to('Buy Plan', purchase_path(plan: 'group'), class: 'button success')

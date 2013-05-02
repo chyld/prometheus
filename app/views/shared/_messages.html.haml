@@ -1,9 +1,9 @@
 - if flash[:error].present?
   .panel.radius
-    %ul
+    %ul.no-bullet
       %li.alert-text= flash[:error]
 
 - if flash[:info].present?
   .panel.radius
-    %ul
+    %ul.no-bullet
       %li.success-text= flash[:info]
