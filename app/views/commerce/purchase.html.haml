@@ -1,14 +1,66 @@
 %h1.subheader Purchase Plan
+
+- count = 0
+- plan = params[:plan]
+- is_plan = Plan.all.map(&:name).include?(plan)
+
+- if @error.present?
+  .row
+    .small-10.large-5.columns
+      .panel.radius
+        %ul.no-bullet
+          %li.alert-text= @error.message
+    .small-2.large-7.columns
+
 .row
   .small-12.columns
-    %h3.subheader Step 1
+    %h3.subheader= "Step #{count += 1}: Sign In"
     - if @auth.present?
-      %b= "#{@auth.email} is purchasing the #{params[:plan]} plan"
+      %p= "You are signed in as #{@auth.email}."
+      %p
+        = image_tag('gemicon/png/16x16/01/11.png')
+        = link_to('Sign in as someone else?', login_users_path)
     -else
       = link_to('Sign In', login_users_path, class: 'button')
-.row
-  .small-12.columns
-    %h3.subheader Step 2
-    - if @auth.present?
-    -else
-      %p You must be signed in to continue...
+
+- if @auth.present?
+  .row
+    .small-12.columns
+      %h3.subheader= "Step #{count += 1}: Select Plan"
+      - if is_plan
+        %p= "You have selected the #{plan} plan."
+        %p
+          = image_tag('gemicon/png/16x16/01/12.png')
+          = link_to('Want a different plan?', plans_path)
+      -else
+        %p You have selected an incorrect plan.
+        %p
+          = link_to('Select a Plan', plans_path, class: 'button')
+
+- if @auth.present? && is_plan
+  - if plan == 'group'
+    .row
+      .small-12.columns
+        %h3.subheader= "Step #{count += 1}: Select Group Size"
+        .row
+          .small-10.large-5.columns
+            %label{for: 'group-size'} Group Size
+            %input{type: 'number', id: 'group-size', name: 'group-size', value: '5'}
+            = link_to_function('Update Total', 'app.group_size_updated()', class: 'button')
+          .small-2.large-7.columns
+
+  .row
+    .small-12.columns
+      %h3.subheader= "Step #{count += 1}: Payment Details"
+      .row
+        .small-10.large-5.columns
+          = render 'credit_card'
+        .small-2.large-7.columns
+
+  .row
+    .small-12.columns
+      %h3.subheader= "Step #{count += 1}: Confirmation"
+      .row
+        .small-10.large-5.columns
+          = render 'confirmation'
+        .small-2.large-7.columns

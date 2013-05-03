@@ -6,6 +6,7 @@ gem 'jquery-rails'
 gem 'haml'
 gem 'bcrypt-ruby'
 gem 'aws-ses'
+gem 'stripe'
 
 group :assets do
   gem 'sass-rails'

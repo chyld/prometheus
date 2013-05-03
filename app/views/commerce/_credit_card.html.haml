@@ -1,0 +1,24 @@
+.panel.radius.hidden#creditcard-error
+  %ul.no-bullet
+    %li.alert-text
+%p
+  = image_tag('mc.png')
+  = image_tag('visa.png')
+  = image_tag('discover.png')
+  = image_tag('amex.png')
+
+= form_tag purchase_path, id: 'payment-form' do
+  = label_tag 'number', 'Card Number'
+  = text_field_tag 'number', nil, :'data-stripe' => 'number'
+  = hidden_field_tag 'token-id', 0
+  = hidden_field_tag 'plan', params[:plan]
+  .row
+    .small-4.columns
+      = label_tag 'exp-month', 'Exp (MM)', class: 'nowrap'
+      = text_field_tag 'exp-month', nil, :'data-stripe' => 'exp-month'
+    .small-4.columns
+      = label_tag 'exp-year', 'Exp (YYYY)', class: 'nowrap'
+      = text_field_tag 'exp-year', nil, :'data-stripe' => 'exp-year'
+    .small-4.columns
+      = label_tag 'cvc', 'CVC', class: 'nowrap'
+      = text_field_tag 'cvc', nil, :'data-stripe' => 'cvc'

@@ -17,4 +17,5 @@ Prometheus::Application.routes.draw do
 
   get 'plans' => 'commerce#plans'
   get 'purchase' => 'commerce#purchase'
+  post 'purchase' => 'commerce#transaction'
 end

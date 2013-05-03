@@ -1,0 +1,28 @@
+- plan = Plan.where(name: params[:plan]).first
+- is_group = plan.name == 'group'
+- amount = is_group ? 5 * plan.amount : plan.amount
+
+%table.full#confirmation
+  %tr
+    %td Email
+    %td= @auth.email
+  %tr
+    %td Plan
+    %td= params[:plan].capitalize
+
+  - if is_group
+    %tr
+      %td Group Size
+      %td#conf-group= 5
+    %tr
+      %td Per Person
+      %td#conf-amount{:'data-amount' => plan.amount}= number_to_currency(plan.amount)
+
+  %tr
+    %td Total
+    %td#conf-total= number_to_currency(amount)
+  %tr
+    %td Term
+    %td= plan.timeframe.capitalize
+
+= submit_tag 'Purchase Plan', class: 'button success', id: 'submit-payment'
