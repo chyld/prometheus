@@ -2,10 +2,10 @@ window.app =
   ready: ->
     $(document).foundation()
     $('#submit-payment').click(app.payment_submitted)
-    $('#submit-email').click(app.email_submitted)
-    $('#submit-password').click(app.password_submitted)
-    $('#submit-cancel-subscription').click(app.cancel_subscription_submitted)
-    $('#submit-add-user').click(app.add_user_submitted)
+    $('#submit_email').click(app.email_submitted)
+    $('#submit_password').click(app.password_submitted)
+    $('#submit_add_user').click(app.add_user_submitted)
+    $('#submit_cancel_subscription').click(app.cancel_subscription_submitted)
     Stripe.setPublishableKey('pk_test_LiVcoLuIswBbGF8Q8EhSqHPH');
   payment_submitted: (e) ->
     e.preventDefault()
@@ -35,23 +35,24 @@ window.app =
       $('#conf-total').text(accounting.formatMoney(total))
   email_submitted: (e) ->
     e.preventDefault()
-    $('#submit-email').attr('disabled', true)
-    $('#submit-email').val('Please wait...')
+    $('#submit_email').attr('disabled', true)
+    $('#submit_email').val('Please wait...')
     $(this).closest('form').submit()
   password_submitted: (e) ->
     e.preventDefault()
-    $('#submit-password').attr('disabled', true)
-    $('#submit-password').val('Please wait...')
-    $(this).closest('form').submit()
-  cancel_subscription_submitted: (e) ->
-    e.preventDefault()
-    $('#submit-cancel-subscription').attr('disabled', true)
-    $('#submit-cancel-subscription').val('Please wait...')
+    $('#submit_password').attr('disabled', true)
+    $('#submit_password').val('Please wait...')
     $(this).closest('form').submit()
   add_user_submitted: (e) ->
     e.preventDefault()
-    $('#submit-add-user').attr('disabled', true)
-    $('#submit-add-user').val('Please wait...')
+    $('#submit_add_user').attr('disabled', true)
+    $('#submit_add_user').val('Please wait...')
     $(this).closest('form').submit()
+  cancel_subscription_submitted: (e) ->
+    e.preventDefault()
+    $('#submit_cancel_subscription').attr('disabled', true)
+    $('#submit_cancel_subscription').val('Please wait...')
+    $(this).closest('form').submit()
+  do_nothing: ->
 
 $(document).ready(app.ready)

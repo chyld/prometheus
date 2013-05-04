@@ -16,7 +16,7 @@
   .small-12.columns
     %h3.subheader= "Step #{count += 1}: Sign In"
     - if @auth.present?
-      %p= "You are signed in as #{@auth.email}."
+      %p= "You are signed in as <strong>#{@auth.email}</strong>.".html_safe
       %p
         %span.livicon{:'data-name' => "key"}
         = link_to('Sign in as someone else?', login_users_path)
@@ -28,7 +28,7 @@
     .small-12.columns
       %h3.subheader= "Step #{count += 1}: Select Plan"
       - if is_plan
-        %p= "You have selected the #{plan} plan."
+        %p= "You have selected the <strong>#{plan.capitalize}</strong> plan.".html_safe
         %p
           %span.livicon{:'data-name' => "check-circle"}
           = link_to('Want a different plan?', plans_path)
@@ -45,8 +45,11 @@
         .row
           .small-10.large-5.columns
             %label{for: 'group-size'} Group Size
-            %input{type: 'number', id: 'group-size', name: 'group-size', value: '5'}
-            = link_to_function('Update Total', 'app.group_size_updated()', class: 'button')
+            .row
+              .small-8.columns
+                %input{type: 'number', id: 'group-size', name: 'group-size', value: '5'}
+              .small-4.columns
+                = link_to_function('Update Total', 'app.group_size_updated()', class: 'button small radius expand')
           .small-2.large-7.columns
 
   .row

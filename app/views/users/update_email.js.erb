@@ -1,7 +1,7 @@
-$('#email-errors').empty();
-$('#submit-email').attr('disabled', false);
-$('#submit-email').val('Update Email');
+$('#email_errors').empty();
+$('#submit_email').attr('disabled', false);
+$('#submit_email').val('Update');
 
 <% if @auth.errors.any? %>
-  $('#email-errors').append('<%=j render partial: 'shared/errors', locals: {object: @auth} %>');
+  $('#email_errors').append('<%=j render partial: 'shared/errors', locals: {object: @auth} %>');
 <% end %>

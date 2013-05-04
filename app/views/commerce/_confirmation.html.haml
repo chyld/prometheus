@@ -4,25 +4,31 @@
 
 %table.full#confirmation
   %tr
-    %td Email
+    %td
+      %strong Email
     %td= @auth.email
   %tr
-    %td Plan
+    %td
+      %strong Plan
     %td= params[:plan].capitalize
+  %tr
+    %td
+      %strong Term
+    %td= plan.timeframe.capitalize
 
   - if is_group
     %tr
-      %td Group Size
+      %td
+        %strong Group Size
       %td#conf-group= 5
     %tr
-      %td Per Person
+      %td
+        %strong Per Person
       %td#conf-amount{:'data-amount' => plan.amount}= number_to_currency(plan.amount)
 
   %tr
-    %td Total
+    %td
+      %strong Total
     %td#conf-total= number_to_currency(amount)
-  %tr
-    %td Term
-    %td= plan.timeframe.capitalize
 
 = submit_tag 'Purchase Plan', class: 'button success', id: 'submit-payment'

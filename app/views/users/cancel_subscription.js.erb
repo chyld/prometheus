@@ -1,8 +1,8 @@
 <% if @auth.plan.nil? %>
-  $('#submit-cancel-subscription').hide();
-  $('#cancel-subscription-errors').empty().append('<%=j render partial: 'shared/generic_messages', locals: {messages: ['Your subscription has been cancelled'], css: 'success-text'} %>');
+  $('#submit_cancel_subscription').hide();
+  $('#cancel_subscription_errors').empty().append('<%=j render partial: 'shared/generic_messages', locals: {messages: ['Your subscription has been cancelled'], css: 'success-text'} %>');
 <% else %>
-  $('#cancel-subscription-errors').empty().append('<%=j render partial: 'shared/generic_messages', locals: {messages: ['An error occurred while cancelling your subscription'], css: 'alert-text'} %>');
-  $('#submit-cancel-subscription').attr('disabled', false);
-  $('#submit-cancel-subscription').val('Cancel Subscription');
+  $('#cancel_subscription_errors').empty().append('<%=j render partial: 'shared/generic_messages', locals: {messages: ['An error occurred while cancelling your subscription'], css: 'alert-text'} %>');
+  $('#submit_cancel_subscription').attr('disabled', false);
+  $('#submit_cancel_subscription').val('Cancel');
 <% end %>
