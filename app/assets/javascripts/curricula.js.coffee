@@ -3,6 +3,7 @@ window.app =
     $(document).foundation()
     $('#submit-payment').click(app.payment_submitted)
     $('#submit-email').click(app.email_submitted)
+    $('#submit-password').click(app.password_submitted)
     Stripe.setPublishableKey('pk_test_LiVcoLuIswBbGF8Q8EhSqHPH');
   payment_submitted: (e) ->
     e.preventDefault()
@@ -34,6 +35,11 @@ window.app =
     e.preventDefault()
     $('#submit-email').attr('disabled', true)
     $('#submit-email').val('Please wait...')
+    $(this).closest('form').submit()
+  password_submitted: (e) ->
+    e.preventDefault()
+    $('#submit-password').attr('disabled', true)
+    $('#submit-password').val('Please wait...')
     $(this).closest('form').submit()
 
 $(document).ready(app.ready)

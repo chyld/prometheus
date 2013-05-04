@@ -68,6 +68,7 @@ class UsersController < ApplicationController
   end
 
   def update_password
+    @auth.update_attributes(password: params[:password], password_confirmation: params[:password_confirmation])
   end
 
   private

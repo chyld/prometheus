@@ -9,4 +9,9 @@ class Notifications < ActionMailer::Base
     @password = password
     mail :to => user.email, :from => 'support@curricula.io', :subject => "Password Reset"
   end
+
+  def plan_purchased(user)
+    @user = user
+    mail :to => user.email, :from => 'support@curricula.io', :subject => "Curricula.io Receipt"
+  end
 end

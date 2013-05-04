@@ -19,6 +19,7 @@ class CommerceController < ApplicationController
         @auth.customer_id = customer.id
         @auth.plan = plan
         @auth.save
+        Notifications.plan_purchased(@auth).deliver
       end
     rescue Stripe::CardError => @error
     rescue => @error

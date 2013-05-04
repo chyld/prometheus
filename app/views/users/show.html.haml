@@ -1,4 +1,5 @@
 %h1.subheader My Account
+
 %h3.subheader Update Email
 .row
   .small-10.large-5.columns
@@ -7,4 +8,16 @@
       = label_tag 'email'
       = text_field_tag 'email', @auth.email
       = submit_tag 'Update Email', class: 'button', id: 'submit-email'
+  .small-2.large-7.columns
+
+%h3.subheader Update Password
+.row
+  .small-10.large-5.columns
+    #password-errors
+    = form_tag update_password_users_path, :remote => true do
+      = label_tag 'password'
+      = password_field_tag 'password'
+      = label_tag 'password_confirmation', 'Confirm Password'
+      = password_field_tag 'password_confirmation'
+      = submit_tag 'Update Password', class: 'button', id: 'submit-password'
   .small-2.large-7.columns
