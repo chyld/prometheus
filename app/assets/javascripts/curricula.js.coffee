@@ -4,6 +4,7 @@ window.app =
     $('#submit-payment').click(app.payment_submitted)
     $('#submit-email').click(app.email_submitted)
     $('#submit-password').click(app.password_submitted)
+    $('#submit-cancel-subscription').click(app.cancel_subscription_submitted)
     Stripe.setPublishableKey('pk_test_LiVcoLuIswBbGF8Q8EhSqHPH');
   payment_submitted: (e) ->
     e.preventDefault()
@@ -40,6 +41,11 @@ window.app =
     e.preventDefault()
     $('#submit-password').attr('disabled', true)
     $('#submit-password').val('Please wait...')
+    $(this).closest('form').submit()
+  cancel_subscription_submitted: (e) ->
+    e.preventDefault()
+    $('#submit-cancel-subscription').attr('disabled', true)
+    $('#submit-cancel-subscription').val('Please wait...')
     $(this).closest('form').submit()
 
 $(document).ready(app.ready)

@@ -21,3 +21,12 @@
       = password_field_tag 'password_confirmation'
       = submit_tag 'Update Password', class: 'button', id: 'submit-password'
   .small-2.large-7.columns
+
+- if @auth.plan.present?
+  %h3.subheader Cancel Subscription
+  .row
+    .small-10.large-5.columns
+      #cancel-subscription-errors
+      = form_tag cancel_subscription_users_path, :remote => true do
+        = submit_tag 'Cancel Subscription', class: 'button alert', id: 'submit-cancel-subscription'
+    .small-2.large-7.columns

@@ -71,6 +71,17 @@ class UsersController < ApplicationController
     @auth.update_attributes(password: params[:password], password_confirmation: params[:password_confirmation])
   end
 
+  def cancel_subscription
+    begin
+      customer = Stripe::Customer.retrieve(@auth.customer_id)
+      customer.cancel_subscription
+      customer = Stripe::Customer.retrieve(@auth.customer_id)
+      @auth.plan = nil if customer.subscription.nil?
+      @auth.save
+    rescue
+    end
+  end
+
   private
   def check_user_present
     redirect_to(root_path) if @auth.nil?

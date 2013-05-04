@@ -12,6 +12,7 @@ Prometheus::Application.routes.draw do
       post :password, action: :password_reset
       post :update_email
       post :update_password
+      post :cancel_subscription
     end
   end
 
