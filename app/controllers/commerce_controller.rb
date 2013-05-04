@@ -27,6 +27,7 @@ class CommerceController < ApplicationController
       end
 
       @auth.plan = plan
+      @auth.group_size = size
       @auth.save
       Notifications.plan_purchased(@auth).deliver
     rescue => @error

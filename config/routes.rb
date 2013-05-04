@@ -13,6 +13,8 @@ Prometheus::Application.routes.draw do
       post :update_email
       post :update_password
       post :cancel_subscription
+      post :add_member
+      post :delete_member
     end
   end
 

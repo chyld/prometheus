@@ -1,0 +1,10 @@
+%tr
+  %th Email Address
+  %th Delete Member?
+%tr
+  %td= @auth.email
+  %td= "Cannot delete owner"
+- @auth.members.each do |member|
+  %tr
+    %td= member.email
+    %td= link_to('Delete', delete_member_users_path(member_email: member.email), method: 'post', remote: true, class: 'button tiny radius alert')

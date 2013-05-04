@@ -83,6 +83,17 @@ class UsersController < ApplicationController
     end
   end
 
+  def add_member
+    if (@auth.plan.name == 'group') && (@auth.members.count < (@auth.group_size - 1))
+      @auth.members << Member.new(email: params[:member_email])
+    end
+  end
+
+  def delete_member
+    member = @auth.members.where(email: params[:member_email]).first
+    member.delete if member.present?
+  end
+
   private
   def check_user_present
     redirect_to(root_path) if @auth.nil?

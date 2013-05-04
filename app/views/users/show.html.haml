@@ -22,6 +22,19 @@
       = submit_tag 'Update Password', class: 'button', id: 'submit-password'
   .small-2.large-7.columns
 
+- if @auth.plan.present? && @auth.plan.name == 'group'
+  %h3.subheader Group Management
+  .row
+    .small-10.large-5.columns
+      #group-management-errors
+      = form_tag add_member_users_path, :remote => true do
+        = label_tag 'member_email'
+        = text_field_tag 'member_email'
+        = submit_tag 'Add User', class: 'button', id: 'submit-add-user'
+      %table.full#member-list
+        = render 'member_list'
+    .small-2.large-7.columns
+
 - if @auth.plan.present?
   %h3.subheader Cancel Subscription
   %p= "Plan: #{@auth.plan.name.capitalize}"

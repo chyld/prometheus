@@ -4,6 +4,7 @@ class CreateUsersTable < ActiveRecord::Migration
       t.text :email
       t.text :password_digest
       t.integer :plan_id
+      t.integer :group_size
       t.text :customer_id
 
       t.timestamps
