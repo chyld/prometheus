@@ -18,7 +18,7 @@
     - if @auth.present?
       %p= "You are signed in as #{@auth.email}."
       %p
-        = image_tag('gemicon/png/16x16/01/11.png')
+        %span.livicon{:'data-name' => "key"}
         = link_to('Sign in as someone else?', login_users_path)
     -else
       = link_to('Sign In', login_users_path, class: 'button')
@@ -30,7 +30,7 @@
       - if is_plan
         %p= "You have selected the #{plan} plan."
         %p
-          = image_tag('gemicon/png/16x16/01/12.png')
+          %span.livicon{:'data-name' => "check-circle"}
           = link_to('Want a different plan?', plans_path)
       -else
         %p You have selected an incorrect plan.

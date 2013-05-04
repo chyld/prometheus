@@ -8,8 +8,8 @@
 
 .row
   .small-6.columns
-    = image_tag('gemicon/png/16x16/03/6.png')
+    %span.livicon{:'data-name' => "lock"}
     = link_to('Forgot Password?', password_users_path)
   .small-6.columns
-    = image_tag('gemicon/png/16x16/09/2.png')
+    %span.livicon{:'data-name' => "user"}
     = link_to('Need to Sign Up?', register_users_path)

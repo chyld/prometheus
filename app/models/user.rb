@@ -6,7 +6,6 @@
 #  email           :text
 #  password_digest :text
 #  plan_id         :integer
-#  plan_start      :date
 #  customer_id     :text
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null

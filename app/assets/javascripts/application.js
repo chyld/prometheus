@@ -5,4 +5,6 @@
 //= require 'accounting.min'
 //= require 'moment.min'
 //= require 'sugar.min'
-//= require 'curricula.js'
+//= require 'raphael.min'
+//= require 'livicons.min'
+//= require 'curricula'
