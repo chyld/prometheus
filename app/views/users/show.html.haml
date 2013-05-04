@@ -1,1 +1,10 @@
 %h1.subheader My Account
+%h3.subheader Update Email
+.row
+  .small-10.large-5.columns
+    #email-errors
+    = form_tag update_email_users_path, :remote => true do
+      = label_tag 'email'
+      = text_field_tag 'email', @auth.email
+      = submit_tag 'Update Email', class: 'button', id: 'submit-email'
+  .small-2.large-7.columns

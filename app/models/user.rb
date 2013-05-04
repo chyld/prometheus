@@ -16,6 +16,6 @@ class User < ActiveRecord::Base
   has_secure_password
   validates :email, :format => { :with => /.+@.+/, :message => "address is invalid" }
   validates :email, :uniqueness => true
-  validates :password, :length => { :minimum => 5 }
+  validates :password, :length => { :minimum => 5 }, :if => lambda { |u| u.password_digest_changed? || u.new_record? }
   belongs_to :plan
 end

@@ -2,6 +2,7 @@ window.app =
   ready: ->
     $(document).foundation()
     $('#submit-payment').click(app.payment_submitted)
+    $('#submit-email').click(app.email_submitted)
     Stripe.setPublishableKey('pk_test_LiVcoLuIswBbGF8Q8EhSqHPH');
   payment_submitted: (e) ->
     e.preventDefault()
@@ -29,5 +30,10 @@ window.app =
     else
       $('#conf-group').text(size)
       $('#conf-total').text(accounting.formatMoney(total))
+  email_submitted: (e) ->
+    e.preventDefault()
+    $('#submit-email').attr('disabled', true)
+    $('#submit-email').val('Please wait...')
+    $(this).closest('form').submit()
 
 $(document).ready(app.ready)

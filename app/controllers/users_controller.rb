@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+
+  before_filter :check_user_present, :only => [:show]
+
   def new
     @user = User.new
   end
@@ -58,5 +61,17 @@ class UsersController < ApplicationController
   end
 
   def show
+  end
+
+  def update_email
+    @auth.update_attributes(email: params[:email])
+  end
+
+  def update_password
+  end
+
+  private
+  def check_user_present
+    redirect_to(root_path) if @auth.nil?
   end
 end

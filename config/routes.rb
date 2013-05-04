@@ -10,6 +10,8 @@ Prometheus::Application.routes.draw do
       delete :login, action: :logout
       get :password
       post :password, action: :password_reset
+      post :update_email
+      post :update_password
     end
   end
 

@@ -1,0 +1,7 @@
+$('#email-errors').empty();
+$('#submit-email').attr('disabled', false);
+$('#submit-email').val('Update Email');
+
+<% if @auth.errors.any? %>
+  $('#email-errors').append('<%=j render partial: 'shared/errors', locals: {object: @auth} %>');
+<% end %>
