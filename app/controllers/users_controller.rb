@@ -78,6 +78,7 @@ class UsersController < ApplicationController
       customer = Stripe::Customer.retrieve(@auth.customer_id)
       @auth.plan = nil if customer.subscription.nil?
       @auth.save
+      Notifications.plan_cancelled(@auth).deliver
     rescue
     end
   end

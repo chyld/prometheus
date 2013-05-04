@@ -24,6 +24,7 @@
 
 - if @auth.plan.present?
   %h3.subheader Cancel Subscription
+  %p= "Plan: #{@auth.plan.name.capitalize}"
   .row
     .small-10.large-5.columns
       #cancel-subscription-errors

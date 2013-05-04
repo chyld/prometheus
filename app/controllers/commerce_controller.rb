@@ -17,11 +17,18 @@ class CommerceController < ApplicationController
       if @auth.customer_id.blank?
         customer = Stripe::Customer.create(email: @auth.email, card: params[:'token-id'], plan: plan.name, quantity: size)
         @auth.customer_id = customer.id
-        @auth.plan = plan
-        @auth.save
-        Notifications.plan_purchased(@auth).deliver
+      else
+        customer = Stripe::Customer.retrieve(@auth.customer_id)
+        customer.email = @auth.email
+        customer.card = params[:'token-id']
+        customer.plan = plan.name
+        customer.quantity = size
+        customer.save
       end
-    rescue Stripe::CardError => @error
+
+      @auth.plan = plan
+      @auth.save
+      Notifications.plan_purchased(@auth).deliver
     rescue => @error
     end
 
