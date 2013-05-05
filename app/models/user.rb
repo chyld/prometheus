@@ -20,4 +20,6 @@ class User < ActiveRecord::Base
   validates :password, :length => { :minimum => 5 }, :if => lambda { |u| u.password_digest_changed? || u.new_record? }
   belongs_to :plan
   has_many :members
+  has_and_belongs_to_many :curricula
+  has_and_belongs_to_many :units
 end

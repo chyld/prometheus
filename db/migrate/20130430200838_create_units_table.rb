@@ -3,6 +3,7 @@ class CreateUnitsTable < ActiveRecord::Migration
     create_table :units do |t|
       t.text :name
       t.text :description
+      t.integer :section_id
 
       t.timestamps
     end
